@@ -5,14 +5,14 @@
   <.input field={f[:url]} type="text" label="Url" />
   <.input field={f[:title]} type="text" label="Title" />
   <.input field={f[:description]} type="text" label="Description" />
-  <%!-- <.input
+  <.input
     type="select"
     field={f[:category_id]}
     label="Category"
     options={category_select_options(@categories)}
     prompt="Choose a category"
-  /> --%>
-  <.input
+  />
+  <%!-- <.input
     field={{f, :category_id}}
     name="category"
     type="select"
@@ -20,7 +20,7 @@
     prompt="Enter a category"
     options={Enum.map(@categories, fn c -> {c.name, c.id} end)}
     value={Enum.map(@categories, fn c -> c.id end)}
-  />
+  /> --%>
 
   <:actions>
     <.button>Save Video</.button>

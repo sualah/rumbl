@@ -60,7 +60,8 @@ defmodule Rumbl.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:pbkdf2_elixir, "~> 1.0"},
-      {:ex_doc, "~> 0.29", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.29", only: :dev, runtime: false},
+      {:ecto_psql_extras, "~> 0.6"},
     ]
   end
 
