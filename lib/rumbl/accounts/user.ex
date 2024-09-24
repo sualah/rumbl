@@ -1,5 +1,4 @@
 defmodule Rumbl.Accounts.User do
-  # defstruct [:id, :name, :username]
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -7,7 +6,7 @@ defmodule Rumbl.Accounts.User do
     field :name, :string
     field :username, :string
     field :password, :string, virtual: true
-    field :password_hash, :string
+    field :password_hash, :string, redact: true
 
     timestamps()
   end
@@ -33,6 +32,7 @@ defmodule Rumbl.Accounts.User do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
         put_change(changeset, :password_hash, Pbkdf2.hash_pwd_salt(pass))
+
       _ ->
         changeset
     end

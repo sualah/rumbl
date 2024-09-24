@@ -6,9 +6,12 @@ defmodule Rumbl.Multimedia.Category do
   schema "categories" do
     field :name, :string
 
-    timestamps(type: :utc_datetime)
+    timestamps()
   end
 
+  @doc """
+  Given a query, tell it to be ordered alphabetically by name.
+  """
   def alphabetical(query) do
     from c in query, order_by: c.name
   end

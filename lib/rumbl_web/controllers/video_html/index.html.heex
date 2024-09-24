@@ -8,9 +8,13 @@
 </.header>
 
 <.table id="videos" rows={@videos} row_click={&JS.navigate(~p"/manage/videos/#{&1}")}>
-  <:col :let={video} label="Url"><%= video.url %></:col>
   <:col :let={video} label="Title"><%= video.title %></:col>
   <:col :let={video} label="Description"><%= video.description %></:col>
+  <:action :let={video}>
+    <.link href={~p"/watch/#{video}"}>
+      Watch
+    </.link>
+  </:action>
   <:action :let={video}>
     <div class="sr-only">
       <.link navigate={~p"/manage/videos/#{video}"}>Show</.link>
